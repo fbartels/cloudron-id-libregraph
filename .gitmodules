@@ -1,0 +1,9 @@
+[submodule "kweb"]
+	path = kweb
+	url = https://github.com/Kopano-dev/kweb.git
+[submodule "lico"]
+	path = lico
+	url = https://github.com/libregraph/lico.git
+[submodule "idm"]
+	path = idm
+	url = https://github.com/libregraph/idm.git

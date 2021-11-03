@@ -1,0 +1,27 @@
+{
+  "version": "0.0.1",
+  "id": "io.cloudron.id",
+  "icon": "file://logo.png",
+  "healthCheckPath": "/.well-known/root-ca.crt",
+  "httpPort": 2015,
+  "addons": {
+    "localstorage": {},
+    "ldap": {},
+    "tls": {}
+  },
+  "tcpPorts": {
+    "CA_PORT": {
+      "title": "CA Port",
+      "description": "Port for the step certificate authority",
+      "defaultValue": 8443,
+      "containerPort": 8443
+    },
+    "LDAPS_PORT": {
+      "title": "LDAPS Port",
+      "description": "Port to reach the included ldap via ssl",
+      "defaultValue": 7636,
+      "containerPort": 7636
+    }
+  },
+  "manifestVersion": 2
+}

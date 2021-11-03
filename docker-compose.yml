@@ -1,0 +1,32 @@
+version: "3.5"
+
+services:
+  cloudron-id:
+    image: ${docker_repo:-fbartels}/cloudron-id:${APP_VERSION:-latest}
+    ports:
+      - 2015:2015
+    environment:
+      - CLOUDRON=1
+      - CLOUDRON_API_ORIGIN=https://my.9wd.eu
+      - CLOUDRON_APP_DOMAIN=id.9wd.eu
+      - CLOUDRON_APP_HOSTNAME=ba6e1ee3-32aa-4748-86ee-c953350f65fd
+      - CLOUDRON_APP_ORIGIN=https://id.9wd.eu
+      - CLOUDRON_LDAP_BIND_DN=cn=ba6e1ee3-32aa-4748-86ee-c953350f65fd,ou=apps,dc=cloudron
+      - CLOUDRON_LDAP_BIND_PASSWORD=b8ada5684f88ad0ab90f95bf7ce4c7df899f6c6284dd97a6741feb7daa10a135e01813df737f8acd48c09a4418fde148dfe270fc97d96a03abc910c07aae8da6
+      - CLOUDRON_LDAP_GROUPS_BASE_DN=ou=groups,dc=cloudron
+      - CLOUDRON_LDAP_HOST=172.18.0.1
+      - CLOUDRON_LDAP_PORT=3002
+      - CLOUDRON_LDAP_SERVER=172.18.0.1
+      - CLOUDRON_LDAP_URL=ldap://172.18.0.1:3002
+      - CLOUDRON_LDAP_USERS_BASE_DN=ou=users,dc=cloudron
+      - CLOUDRON_PROXY_IP=172.18.0.1
+      - CLOUDRON_WEBADMIN_ORIGIN=https://my.9wd.eu
+    volumes:
+      - data:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run
+
+volumes:
+  data:
